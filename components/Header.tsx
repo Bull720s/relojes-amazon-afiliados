@@ -7,6 +7,7 @@ const NAV = [
   { label: "Smartwatches", href: `/categorias/${categoryToSlug("Smartwatches")}` },
   { label: "Deportivos", href: `/categorias/${categoryToSlug("Deportivos")}` },
   { label: "Lujo", href: "/categorias/lujo" },
+  { label: "Joyería", href: "/joyeria" },
   { label: "Guías", href: "/guias" },
   { label: "Comparador", href: "/comparador" },
 ];

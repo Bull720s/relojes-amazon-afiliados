@@ -8,7 +8,15 @@ import type { Watch } from "@/lib/watches";
 const COLORS = ["#8B1D16", "#111111", "#6F6F6F"];
 const EMPTY = "__none__";
 
-export default function ComparadorClient({ watches }: { watches: Watch[] }) {
+export default function ComparadorClient({
+  watches,
+  basePath = "/relojes",
+  itemLabel = "Reloj",
+}: {
+  watches: Watch[];
+  basePath?: string;
+  itemLabel?: string;
+}) {
   const [ids, setIds] = useState<string[]>([watches[0]?.id ?? EMPTY, watches[1]?.id ?? EMPTY, EMPTY]);
 
   const selected = ids.map((id) => watches.find((w) => w.id === id)).filter(Boolean) as Watch[];
@@ -25,7 +33,7 @@ export default function ComparadorClient({ watches }: { watches: Watch[] }) {
         {[0, 1, 2].map((slot) => (
           <div key={slot}>
             <label className="block text-[12px] tracking-[0.12em] uppercase text-ink-soft mb-2">
-              Reloj {slot + 1} {slot === 2 && "(opcional)"}
+              {itemLabel} {slot + 1} {slot === 2 && "(opcional)"}
             </label>
             <select
               className="w-full border border-line px-4 py-3 text-[14px] bg-white"
@@ -48,7 +56,9 @@ export default function ComparadorClient({ watches }: { watches: Watch[] }) {
       </div>
 
       {selected.length < 2 ? (
-        <div className="text-center py-24 px-8 text-ink-soft">Selecciona al menos dos relojes para comparar.</div>
+        <div className="text-center py-24 px-8 text-ink-soft">
+          Selecciona al menos dos {itemLabel === "Reloj" ? "relojes" : "piezas"} para comparar.
+        </div>
       ) : (
         <>
           <div className="overflow-x-auto px-6 md:px-16 pb-16">
@@ -58,7 +68,7 @@ export default function ComparadorClient({ watches }: { watches: Watch[] }) {
                   <td className="py-4 px-2 w-[24%]" />
                   {selected.map((w, i) => (
                     <td key={w.id} className="py-4 px-2 text-center align-bottom">
-                      <Link href={`/relojes/${w.id}`} className="group">
+                      <Link href={`${basePath}/${w.id}`} className="group">
                         <div
                           className="text-[11px] tracking-[0.12em] uppercase mb-2"
                           style={{ color: COLORS[i % COLORS.length] }}

@@ -8,21 +8,22 @@ export default function CompareRadarChart({
 }: {
   series: { radar: RadarScores; label: string }[];
 }) {
-  const lines = axisLines();
-  const labels = axisLabelsGeneric();
+  const axes = Object.keys(series[0]?.radar ?? {});
+  const lines = axisLines(axes.length);
+  const labels = axisLabelsGeneric(axes);
 
   return (
     <div>
       <svg viewBox="0 0 600 600" width="100%" height="auto">
-        <polygon points={outerGridPolygon(1)} fill="none" stroke="#E5E5E5" strokeWidth={1.5} />
-        <polygon points={outerGridPolygon(0.5)} fill="none" stroke="#E5E5E5" strokeWidth={1} />
+        <polygon points={outerGridPolygon(1, axes.length)} fill="none" stroke="#E5E5E5" strokeWidth={1.5} />
+        <polygon points={outerGridPolygon(0.5, axes.length)} fill="none" stroke="#E5E5E5" strokeWidth={1} />
         {lines.map((l, i) => (
           <line key={i} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2} stroke="#E5E5E5" />
         ))}
         {series.map((s, i) => (
           <polygon
             key={i}
-            points={dataPolygon(s.radar)}
+            points={dataPolygon(s.radar, axes)}
             fill={COLORS[i % COLORS.length]}
             fillOpacity={0.08}
             stroke={COLORS[i % COLORS.length]}

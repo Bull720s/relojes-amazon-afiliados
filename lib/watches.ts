@@ -1,14 +1,6 @@
 import data from "@/data/relojes.json";
 
-export type RadarScores = {
-  Diseño: number;
-  Construcción: number;
-  "Precio-calidad": number;
-  Precisión: number;
-  Comodidad: number;
-  Prestigio: number;
-  Versatilidad: number;
-};
+export type RadarScores = Record<string, number>;
 
 export type Watch = {
   id: string;
