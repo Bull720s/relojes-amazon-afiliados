@@ -11,7 +11,7 @@
       "Mejor relación calidad-precio"
     ],
     "tag": "MÁS VENDIDO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$7,625.53",
     "specs": {
       "Movimiento": "Automático (cuerda manual también), calibre 4R36",
       "Reserva de marcha": "~41 horas",
@@ -49,7 +49,7 @@
       "Para empezar una colección"
     ],
     "tag": "CLÁSICO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$3,934.60",
     "specs": {
       "Movimiento": "Automático (cuerda manual también, con hacking), calibre F6724",
       "Reserva de marcha": "~40 horas",
@@ -87,7 +87,7 @@
       "Para hombre"
     ],
     "tag": "MEJOR PRECIO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$1,852.09",
     "specs": {
       "Movimiento": "Automático, calibre NH35A (24 rubíes)",
       "Diámetro de caja": "40 mm",
@@ -124,7 +124,7 @@
       "Mejor relación calidad-precio"
     ],
     "tag": "ICÓNICO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$1,988.73",
     "specs": {
       "Movimiento": "Cuarzo analógico-digital",
       "Diámetro de caja": "48.5 mm",
@@ -161,6 +161,7 @@
     ],
     "tag": "TECNOLOGÍA",
     "precio_mxn": "[PRECIO MXN]",
+    "nota_verificacion": "El link de Amazon guardado (ASIN B09HWT7N31) en realidad apunta a un Casio EFV-620D-1A4V, no al Edifice EQB-1000. Busqué el EQB-1000/EQB-1300D en Amazon México y solo encontré un EQB-1300D vendido por Amazon Europa con envío de 10-11 semanas — no es una opción viable para el sitio. Antes de publicar precio, decidir: reemplazar por el modelo EQB-1300D correcto (aceptando el envío lento) o cambiar esta ficha por otro Edifice sí disponible en México.",
     "specs": {
       "Movimiento": "Cuarzo solar con Bluetooth, calibre 5604",
       "Diámetro de caja": "45.6 mm",
@@ -196,7 +197,7 @@
       "Para hombre"
     ],
     "tag": "ECO-DRIVE",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$4,849.82",
     "specs": {
       "Movimiento": "Cuarzo solar Eco-Drive, calibre E168",
       "Diámetro de caja": "44 mm",
@@ -231,7 +232,7 @@
       "Deportivos"
     ],
     "tag": "DEPORTE",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$3,763.00",
     "specs": {
       "Pantalla": "AMOLED 1.2\", 390x390px, Gorilla Glass 3",
       "Diámetro de caja": "42 mm",
@@ -266,7 +267,7 @@
       "Deportivos"
     ],
     "tag": "TENDENCIA",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$7,660.00",
     "specs": {
       "Movimiento": "Cuarzo suizo ETA F06.115",
       "Diámetro de caja": "40 mm",
@@ -302,7 +303,7 @@
       "Casuales"
     ],
     "tag": "CLÁSICO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$1,950.30",
     "specs": {
       "Movimiento": "Cuarzo",
       "Diámetro de caja": "44 mm",
@@ -373,7 +374,7 @@
       "Casuales"
     ],
     "tag": "MINIMALISTA",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$1,418.00",
     "specs": {
       "Movimiento": "Cuarzo (Seiko Instruments)",
       "Diámetro de caja": "40 mm (varía 30-41mm según versión)",
@@ -409,7 +410,7 @@
       "Para hombre"
     ],
     "tag": "CLÁSICO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$3,914.00",
     "specs": {
       "Movimiento": "Cuarzo japonés (algunas versiones automáticas)",
       "Diámetro de caja": "41-45 mm según versión",
@@ -444,7 +445,7 @@
       "Mejor relación calidad-precio"
     ],
     "tag": "ECONÓMICO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$1,965.59",
     "specs": {
       "Movimiento": "Cuarzo analógico",
       "Diámetro de caja": "40 mm",
@@ -481,7 +482,7 @@
       "Para mujer"
     ],
     "tag": "RETRO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$589.00",
     "specs": {
       "Movimiento": "Digital de cuarzo",
       "Diámetro de caja": "36.3 mm",
@@ -516,7 +517,7 @@
       "Para hombre"
     ],
     "tag": "ROBUSTO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$2,386.40",
     "specs": {
       "Movimiento": "Cuarzo",
       "Diámetro de caja": "51 mm (oversize)",
@@ -551,6 +552,7 @@
     ],
     "tag": "GLAMOUR",
     "precio_mxn": "[PRECIO MXN]",
+    "nota_verificacion": "No encontré en Amazon México un listado que coincida con la referencia exacta MK5055 (modelo descontinuado/antiguo) — la búsqueda no arroja resultados directos de este reloj. Antes de publicar, buscar el ASIN correcto manualmente en Amazon o considerar sustituir por un modelo Michael Kors Runway más reciente que sí esté disponible.",
     "specs": {
       "Movimiento": "Cuarzo, cronógrafo",
       "Diámetro de caja": "38 mm",
@@ -584,7 +586,7 @@
       "Para mujer"
     ],
     "tag": "CASUAL",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$2,429.15",
     "specs": {
       "Movimiento": "Cuarzo japonés",
       "Diámetro de caja": "40 mm",
@@ -619,7 +621,7 @@
       "Económicos"
     ],
     "tag": "GLAMOUR",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$1,337.98",
     "specs": {
       "Movimiento": "Cuarzo japonés",
       "Diámetro de caja": "34.5-38 mm según versión",
@@ -655,6 +657,7 @@
     ],
     "tag": "NOVEDAD",
     "precio_mxn": "[PRECIO MXN]",
+    "nota_verificacion": "El link de Amazon guardado (ASIN B0BX7KZSZW) es un Apple Watch SE REACONDICIONADO ($2,979.07), no nuevo — el título del producto lo dice explícitamente. Busqué una versión nueva en Amazon México y no encontré una ficha directa del reloj (solo fundas y accesorios en los resultados). Antes de publicar precio, decidir: aceptar la versión reacondicionada (aclarándolo en el sitio) o buscar el ASIN de la versión nueva directo en Apple/Amazon.",
     "specs": {
       "Pantalla": "LTPO OLED, 1.57\" (40mm) o 1.78\" (44mm)",
       "Diámetro de caja": "40 mm o 44 mm",
@@ -689,7 +692,7 @@
       "Mejor relación calidad-precio"
     ],
     "tag": "ECONÓMICO",
-    "precio_mxn": "[PRECIO MXN]",
+    "precio_mxn": "$1,435.86",
     "specs": {
       "Pantalla": "AMOLED 1.65\"",
       "Dimensiones": "42 x 37 x 9 mm",
