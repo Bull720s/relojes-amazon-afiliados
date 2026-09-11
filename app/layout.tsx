@@ -15,10 +15,28 @@ const workSans = Work_Sans({
   variable: "--font-worksans",
 });
 
+const BASE_URL = "https://relojes-amazon-afiliados-5hvi60b9b-bull19.vercel.app";
+
 export const metadata: Metadata = {
-  title: "El Cronista — Guía de relojería en México",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "El Cronista — Guía de relojería en México",
+    template: "%s — El Cronista",
+  },
   description:
     "Fichas técnicas completas, comparador y guías de compra para elegir el reloj correcto en Amazon México.",
+  openGraph: {
+    type: "website",
+    locale: "es_MX",
+    siteName: "El Cronista",
+    title: "El Cronista — Guía de relojería en México",
+    description:
+      "Fichas técnicas completas, comparador y guías de compra para elegir el reloj correcto en Amazon México.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
