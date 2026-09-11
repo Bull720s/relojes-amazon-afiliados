@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Work_Sans } from "next/font/google";
+import { CartProvider } from "@/lib/cart";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -43,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body className={`${cormorant.variable} ${workSans.variable} font-sans bg-bg text-ink`}>
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

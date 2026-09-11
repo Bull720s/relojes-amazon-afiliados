@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { getAllWatches, getAllCategories, categoryToSlug } from "@/lib/watches";
 import { getAllJewelry } from "@/lib/joyeria";
+import { getAllProductos } from "@/lib/propia";
 import { GUIAS } from "@/lib/guias";
 
 const BASE_URL = "https://relojes-amazon-afiliados-5hvi60b9b-bull19.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/comparador", "/joyeria", "/joyeria/comparador", "/guias"].map(
+  const staticRoutes = ["", "/comparador", "/joyeria", "/joyeria/comparador", "/tienda", "/guias"].map(
     (path) => ({
       url: `${BASE_URL}${path}`,
       lastModified: new Date(),
@@ -33,5 +34,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...watchRoutes, ...jewelryRoutes, ...categoryRoutes, ...guideRoutes];
+  const propiaRoutes = getAllProductos().map((p) => ({
+    url: `${BASE_URL}/tienda/${p.id}`,
+    lastModified: new Date(),
+  }));
+
+  return [
+    ...staticRoutes,
+    ...watchRoutes,
+    ...jewelryRoutes,
+    ...categoryRoutes,
+    ...guideRoutes,
+    ...propiaRoutes,
+  ];
 }

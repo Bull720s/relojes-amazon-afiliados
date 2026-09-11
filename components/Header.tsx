@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { categoryToSlug } from "@/lib/watches";
+import CartIcon from "@/components/CartIcon";
 
 const NAV = [
   { label: "Automáticos", href: `/categorias/${categoryToSlug("Automáticos")}` },
@@ -8,6 +9,7 @@ const NAV = [
   { label: "Deportivos", href: `/categorias/${categoryToSlug("Deportivos")}` },
   { label: "Lujo", href: "/categorias/lujo" },
   { label: "Joyería", href: "/joyeria" },
+  { label: "Tienda", href: "/tienda" },
   { label: "Guías", href: "/guias" },
   { label: "Comparador", href: "/comparador" },
 ];
@@ -66,10 +68,7 @@ export default function Header({ breadcrumb }: { breadcrumb?: string }) {
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
           </svg>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3}>
-            <path d="M6 7h12l-1 13H7L6 7z" />
-            <path d="M9 7V5a3 3 0 0 1 6 0v2" />
-          </svg>
+          <CartIcon />
         </div>
       </div>
 
