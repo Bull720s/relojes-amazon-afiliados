@@ -17,6 +17,7 @@ export type Jewelry = {
   nota_verificacion?: string;
   imagen?: string;
   amazon_url?: string;
+  mercadolibre_url?: string;
 };
 
 const joyeria = data as unknown as Jewelry[];

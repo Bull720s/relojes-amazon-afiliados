@@ -17,6 +17,7 @@ export type Watch = {
   nota_verificacion?: string;
   imagen?: string;
   amazon_url?: string;
+  mercadolibre_url?: string;
 };
 
 const watches = data as unknown as Watch[];

@@ -72,17 +72,29 @@ export default function WatchPage({ params }: { params: { id: string } }) {
             </div>
           </div>
 
-          <a
-            href={watch.amazon_url || `https://www.amazon.com.mx/s?k=${encodeURIComponent(watch.nombre)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-ink text-white px-9 py-4 text-[13px] tracking-[0.12em] uppercase font-medium mb-3 hover:opacity-85 transition-opacity"
-          >
-            Comprar en Amazon México
-          </a>
+          <div className="flex flex-wrap gap-3 mb-3">
+            <a
+              href={watch.amazon_url || `https://www.amazon.com.mx/s?k=${encodeURIComponent(watch.nombre)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-ink text-white px-9 py-4 text-[13px] tracking-[0.12em] uppercase font-medium hover:opacity-85 transition-opacity"
+            >
+              Comprar en Amazon México
+            </a>
+            {watch.mercadolibre_url && (
+              <a
+                href={watch.mercadolibre_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-ink border border-ink px-9 py-4 text-[13px] tracking-[0.12em] uppercase font-medium hover:bg-ink hover:text-white transition-colors"
+              >
+                Comprar en Mercado Libre
+              </a>
+            )}
+          </div>
           <div className="text-sm text-ink-soft">
-            Enlace sin tag de afiliado todavía — se actualizará cuando tengas tu cuenta de Amazon
-            Associates aprobada.
+            Enlaces sin tag de afiliado todavía — se actualizarán cuando tengas tus cuentas de
+            Amazon Associates y Mercado Libre Afiliados aprobadas.
           </div>
           {watch.nota_verificacion && (
             <div className="text-sm text-wine mt-3 max-w-xl">⚠️ {watch.nota_verificacion}</div>
