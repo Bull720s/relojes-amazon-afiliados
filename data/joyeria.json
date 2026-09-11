@@ -85,5 +85,48 @@
     "radar": { "Diseño": 7.5, "Construcción": 6.5, "Precio-calidad": 8.5, "Comodidad": 8.5, "Prestigio": 5.5, "Versatilidad": 7.0 },
     "puntaje_global": 7.5,
     "analisis": "La pulsera de 7 Chakras de Tarcisio combina siete piedras distintas —ágata roja, ámbar, ojo de tigre, jade verde, turquesa, lapislázuli y amatista— con cuentas de roca volcánica pensadas para absorber aceites esenciales. Es la pieza más barata de esta guía y, con 1,120 calificaciones, también la más comprada entre quienes buscan un accesorio con un significado además de estético.\n\nEs la pulsera correcta para apilar junto a un reloj o una cadena metálica y romper la monotonía de solo materiales duros en la muñeca, y para quien quiere probar el género de pulseras de piedra sin gastar mucho. No es la correcta para quien busca durabilidad a prueba de golpes: al ser elástica y de piedras naturales, la calidad percibida varía más de una unidad a otra que en las piezas de acero o piel de esta lista."
+  },
+  {
+    "id": "chainshouse-pulsera-cubana-acero",
+    "marca": "ChainsHouse",
+    "coleccion": "Cuban Link",
+    "nombre": "ChainsHouse Pulsera de Eslabones Cubanos de Acero Inoxidable",
+    "categorias": ["Cadena cubana", "Acero inoxidable 316L", "Para hombre", "Wrist stacking"],
+    "tag": "ESLABÓN GRUESO",
+    "precio_mxn": "$549.18 (9 mm de ancho, acero)",
+    "amazon_url": "https://www.amazon.com.mx/dp/B0BQBQN9DM",
+    "specs": {
+      "Material": "Acero inoxidable 316L",
+      "Anchos disponibles": "5 / 7 / 9 / 12 / 14 mm",
+      "Tallas disponibles": "19 cm / 21 cm / 23 cm (7.5\" / 8.3\" / 9\")",
+      "Colores": "Acero, negro, chapado en oro 18K",
+      "Cierre": "Botón de seguro (box clasp)",
+      "Incluye": "Caja de regalo y bolsa de joyería",
+      "Devolución": "30 días sin costo (Amazon)"
+    },
+    "radar": { "Diseño": 8.5, "Construcción": 7.0, "Precio-calidad": 7.5, "Comodidad": 8.0, "Prestigio": 6.0, "Versatilidad": 8.5 },
+    "puntaje_global": 7.6,
+    "analisis": "La cadena cubana de ChainsHouse apuesta por el eslabón grueso: hasta 14 mm de ancho en acero inoxidable 316L, con 989 calificaciones y 4.3 de 5 estrellas que la vuelven la pieza con más historial de esta lista después de la Steel de SERASAR. Es la opción obvia para quien quiere el efecto 'cadena de peso' junto al reloj sin pagar precio de joyería fina, y viene en tres acabados (acero, negro, oro de 18K) para no limitarse a un solo tono.\n\nEs la pulsera correcta para apilar con relojes de esfera grande o deportivos, donde un eslabón delgado se pierde visualmente. No es la correcta para quien prioriza un cierre a prueba de todo: varias reseñas verificadas reportan que el broche se abre solo con el uso, así que conviene revisarlo antes de salir con ella puesta."
+  },
+  {
+    "id": "gavu-pulsera-ojo-de-tigre",
+    "marca": "GAVU",
+    "coleccion": "Piedras naturales",
+    "nombre": "GAVU Pulsera de Cuentas de Ojo de Tigre y Acero Inoxidable",
+    "categorias": ["Piedra natural", "Para hombre", "Wrist stacking", "Regalo"],
+    "tag": "PIEDRA NATURAL",
+    "precio_mxn": "$463.00",
+    "amazon_url": "https://www.amazon.com.mx/dp/B0BD4GTRSP",
+    "specs": {
+      "Material": "Ojo de tigre café natural (cuentas de 4 mm) y acero inoxidable (cuentas de 3x3 mm)",
+      "Talla": "18 cm + extensor de 3 cm (para muñecas de 16.5–19 cm)",
+      "Cierre": "Broche tipo mosquetón, ajustable",
+      "Otros acabados": "También disponible en azurita, lapislázuli, malaquita, obsidiana, turquesa africana y ónix",
+      "Incluye": "Caja de regalo",
+      "Devolución": "30 días sin costo (Amazon)"
+    },
+    "radar": { "Diseño": 8.0, "Construcción": 7.0, "Precio-calidad": 7.0, "Comodidad": 8.0, "Prestigio": 5.5, "Versatilidad": 7.5 },
+    "puntaje_global": 7.2,
+    "analisis": "La pulsera de ojo de tigre de GAVU alterna piedra natural genuina con cuentas cuadradas de acero inoxidable, un contraste de textura que las pulseras 100% metálicas no ofrecen. Con 146 calificaciones y 4.4 de 5 estrellas, el comentario más repetido es sobre la apariencia: se ve más cara de lo que cuesta, y llega en caja de regalo lista para envolver.\n\nEs la pulsera correcta para romper visualmente una muñeca cargada solo de acero y aportar color sin caer en algo llamativo de más. No es la correcta para quien busca una sola pieza indestructible: al ser piedra natural en hilo de acero, el cuidado recomendado (evitar agua y químicos) es más exigente que el de las piezas 100% metálicas de esta lista."
   }
 ]
