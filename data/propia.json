@@ -1,11 +1,1 @@
-[
-  {
-    "id": "producto-ejemplo",
-    "nombre": "Producto de ejemplo",
-    "categoria": "Accesorios",
-    "precio": 450,
-    "descripcion": "Este es un producto de ejemplo para probar el carrito y el pedido de principio a fin. Reemplázalo con tu primer producto real: nombre, precio, descripción y foto.",
-    "imagen": null,
-    "disponible": true
-  }
-]
+[]

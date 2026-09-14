@@ -25,13 +25,19 @@ export default function TiendaPage() {
         </p>
       </FadeIn>
 
-      <StaggerGrid className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14 px-6 md:px-14 pb-24">
-        {items.map((item) => (
-          <StaggerItem key={item.id}>
-            <PropiaCard item={item} />
-          </StaggerItem>
-        ))}
-      </StaggerGrid>
+      {items.length === 0 ? (
+        <p className="text-ink-soft text-center text-[15px] px-8 pb-24">
+          Muy pronto vas a poder comprar aquí nuestras primeras piezas propias.
+        </p>
+      ) : (
+        <StaggerGrid className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14 px-6 md:px-14 pb-24">
+          {items.map((item) => (
+            <StaggerItem key={item.id}>
+              <PropiaCard item={item} />
+            </StaggerItem>
+          ))}
+        </StaggerGrid>
+      )}
 
       <Footer />
     </main>
