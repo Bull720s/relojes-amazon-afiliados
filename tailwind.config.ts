@@ -5,18 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#FAFAF8",
+        bg: "#FFFFFF",
         card: "#FFFFFF",
         ink: "#111111",
-        "ink-soft": "#6F6F6F",
-        line: "#E5E5E5",
-        wine: "#8B1D16",
+        "ink-soft": "#777777",
+        line: "#E6E6E6",
+        wine: "#111111",
         brass: "#111111",
-        "brass-soft": "#F3F3F1",
+        "brass-soft": "#F5F5F5",
       },
       fontFamily: {
-        serif: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-worksans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-mono)", "ui-monospace", "monospace"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },
   },

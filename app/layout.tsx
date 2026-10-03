@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Work_Sans } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import { CartProvider } from "@/lib/cart";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const mono = Roboto_Mono({
   subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-});
-
-const workSans = Work_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-worksans",
+  weight: ["400", "500", "700"],
+  variable: "--font-mono",
 });
 
 const BASE_URL = "https://relojes-amazon-afiliados-5hvi60b9b-bull19.vercel.app";
@@ -43,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={`${cormorant.variable} ${workSans.variable} font-sans bg-bg text-ink`}>
+      <body className={`${mono.variable} font-mono bg-bg text-ink antialiased`}>
         <CartProvider>{children}</CartProvider>
       </body>
     </html>

@@ -1,8 +1,14 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 import { categoryToSlug } from "@/lib/watches";
-import CartIcon from "@/components/CartIcon";
+import { useCart } from "@/lib/cart";
 
 const NAV = [
+  { label: "Todos los relojes", href: "/#catalogo" },
   { label: "Automáticos", href: `/categorias/${categoryToSlug("Automáticos")}` },
   { label: "Cuarzo", href: `/categorias/${categoryToSlug("Cuarzo")}` },
   { label: "Smartwatches", href: `/categorias/${categoryToSlug("Smartwatches")}` },
@@ -15,79 +21,66 @@ const NAV = [
 ];
 
 export default function Header({ breadcrumb }: { breadcrumb?: string }) {
+  const [open, setOpen] = useState(false);
+  const { totalItems } = useCart();
+  const pathname = usePathname();
+
+  useEffect(() => setOpen(false), [pathname]);
+
   return (
     <>
-      <div className="relative bg-wine text-white text-[13px] text-center py-3 px-6 tracking-[0.08em] font-medium">
-        <svg
-          className="absolute left-6 top-1/2 -translate-y-1/2"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.4}
-        >
-          <path d="M15 6l-6 6 6 6" />
-        </svg>
-        ENTREGA SEGURA EN TODO MÉXICO
-        <svg
-          className="absolute right-6 top-1/2 -translate-y-1/2"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.4}
-        >
-          <path d="M9 6l6 6-6 6" />
-        </svg>
-      </div>
+      <header className="sticky top-0 z-40 bg-white border-b border-line">
+        <div className="relative flex items-center justify-between px-5 md:px-8 h-14 text-[12px] md:text-[13px] uppercase tracking-[0.06em]">
+          <button type="button" onClick={() => setOpen((v) => !v)} className="uppercase">
+            {open ? "Cerrar" : "Menú"}
+          </button>
 
-      <div className="relative flex items-center justify-between px-5 md:px-8 py-5 bg-white">
-        <div className="flex items-center gap-4 md:gap-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3}>
-            <line x1="3" y1="7" x2="21" y2="7" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="17" x2="21" y2="17" />
-          </svg>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3}>
-            <circle cx="11" cy="11" r="7" />
-            <line x1="21" y1="21" x2="16.6" y2="16.6" />
-          </svg>
-        </div>
+          <Link
+            href="/"
+            className="absolute left-1/2 -translate-x-1/2 font-bold italic normal-case text-[17px] md:text-[19px] tracking-[-0.02em] whitespace-nowrap"
+            style={{ fontStyle: "italic" }}
+          >
+            el cronista<sup className="text-[9px] not-italic ml-0.5">TM</sup>
+          </Link>
 
-        <Link
-          href="/"
-          className="absolute left-1/2 -translate-x-1/2 font-serif italic font-semibold text-[22px] md:text-[30px] tracking-wide text-ink whitespace-nowrap"
-        >
-          El Cronista
-        </Link>
-
-        <div className="flex items-center gap-4 md:gap-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3}>
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-          </svg>
-          <CartIcon />
-        </div>
-      </div>
-
-      <div className="bg-white pb-5 pt-1 text-center border-b border-line overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <div className="flex justify-start md:justify-center gap-7 md:gap-10 text-[14px] md:text-[15px] tracking-wide px-5 md:px-8 w-max mx-auto">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="cursor-pointer text-ink-soft hover:text-ink transition-colors whitespace-nowrap"
-            >
-              {item.label}
+          <div className="flex items-center gap-4 md:gap-6">
+            <Link href="/comparador" className="hidden md:inline hover:opacity-60 transition-opacity">
+              Comparar
             </Link>
-          ))}
+            <Link href="/guias" className="hidden md:inline hover:opacity-60 transition-opacity">
+              Guías
+            </Link>
+            <Link href="/carrito" className="hover:opacity-60 transition-opacity">
+              Carrito{totalItems > 0 ? ` (${totalItems})` : ""}
+            </Link>
+          </div>
         </div>
-      </div>
+
+        <AnimatePresence>
+          {open && (
+            <motion.nav
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="overflow-hidden border-t border-line bg-white"
+            >
+              <ul className="px-5 md:px-8 py-6 grid grid-cols-1 md:grid-cols-5 gap-y-4 gap-x-8 text-[13px] uppercase tracking-[0.06em]">
+                {NAV.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} onClick={() => setOpen(false)} className="hover:opacity-60 transition-opacity">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </header>
 
       {breadcrumb && (
-        <div className="px-5 md:px-8 py-5 md:py-6 text-[13px] md:text-[15px] text-ink-soft bg-white">{breadcrumb}</div>
+        <div className="px-5 md:px-8 pt-6 text-[12px] uppercase tracking-[0.06em] text-ink-soft">{breadcrumb}</div>
       )}
     </>
   );

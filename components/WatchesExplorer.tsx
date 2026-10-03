@@ -2,10 +2,9 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { StaggerGrid, StaggerItem } from "@/components/FadeIn";
-import WatchCard from "@/components/WatchCard";
-import { getShortDescription, type Watch } from "@/lib/watches";
+import WatchCard, { WatchImage } from "@/components/WatchCard";
+import { getShortDescription, getPrecioLabel, type Watch } from "@/lib/watches";
 
 type SortOption = "relevancia" | "precio-asc" | "precio-desc" | "nombre";
 type ViewMode = "cuadricula" | "catalogo";
@@ -24,35 +23,19 @@ function parsePrice(precio_mxn: string): number | null {
 
 function WatchListItem({ watch }: { watch: Watch }) {
   return (
-    <Link href={`/relojes/${watch.id}`} className="group flex items-center gap-6 py-6 border-b border-line">
-      <motion.div
-        whileHover={{ opacity: 0.92 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="relative w-28 h-28 md:w-36 md:h-36 shrink-0 bg-brass-soft flex items-center justify-center overflow-hidden"
-      >
-        {watch.imagen ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={watch.imagen}
-            alt={watch.nombre}
-            className="max-h-[70%] max-w-[70%] object-contain transition-transform duration-500 ease-out group-hover:scale-110"
-          />
-        ) : (
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111111" strokeWidth={0.9}>
-            <circle cx="12" cy="12" r="8.5" />
-            <path d="M12 7.5V12l3 2" />
-            <path d="M9 2.5h6M9 21.5h6" />
-          </svg>
-        )}
-      </motion.div>
-      <div className="flex-1 min-w-0">
-        <div className="text-[11px] tracking-[0.12em] uppercase text-ink-soft mb-1.5">{watch.tag}</div>
-        <div className="font-sans uppercase font-semibold text-[15px] tracking-[0.06em] leading-snug mb-1.5">
-          {watch.nombre}
-        </div>
-        <div className="font-serif text-[15px] text-ink-soft leading-relaxed">{getShortDescription(watch)}</div>
+    <Link href={`/relojes/${watch.id}`} className="group flex items-center gap-5 md:gap-8 py-5 border-b border-line">
+      <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 bg-brass-soft flex items-center justify-center overflow-hidden">
+        <WatchImage
+          watch={watch}
+          className="max-h-[72%] max-w-[72%] transition-transform duration-500 ease-out group-hover:scale-105"
+        />
       </div>
-      <div className="font-sans font-semibold text-[16px] tracking-[0.04em] shrink-0">{watch.precio_mxn}</div>
+      <div className="flex-1 min-w-0">
+        <div className="text-[11px] uppercase tracking-[0.06em] text-ink-soft mb-1.5">{watch.tag}</div>
+        <div className="text-[14px] uppercase tracking-[0.04em] leading-snug mb-1.5">{watch.nombre}</div>
+        <div className="text-[13px] text-ink-soft">{getShortDescription(watch)}</div>
+      </div>
+      <div className="text-[13px] text-ink-soft shrink-0 text-right">{getPrecioLabel(watch)}</div>
     </Link>
   );
 }
@@ -90,44 +73,64 @@ export default function WatchesExplorer({ watches, categories }: { watches: Watc
   }
 
   return (
-    <>
-      <div className="flex justify-center border-t border-b border-line relative">
-        <div
-          onClick={() => {
-            setFilterOpen((v) => !v);
-            setSortOpen(false);
-          }}
-          className="flex-1 max-w-[220px] flex items-center justify-center gap-3 py-5 border-r border-line text-[13px] tracking-[0.14em] uppercase cursor-pointer select-none"
-        >
-          Filtrar{selectedCategories.length ? ` (${selectedCategories.length})` : ""}
-        </div>
-        <div
-          onClick={() => {
-            setSortOpen((v) => !v);
-            setFilterOpen(false);
-          }}
-          className="flex-1 max-w-[220px] flex items-center justify-center gap-3 py-5 text-[13px] tracking-[0.14em] uppercase cursor-pointer select-none"
-        >
-          {SORT_LABELS[sortBy]}
-          <svg
-            width="11"
-            height="11"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            className={`transition-transform ${sortOpen ? "rotate-180" : ""}`}
+    <div className="px-5 md:px-8 pt-14 pb-24 border-t border-line">
+      <h2 className="text-[22px] md:text-[28px] uppercase tracking-[0.02em] mb-10">Todos los relojes</h2>
+
+      <div className="relative flex items-center justify-between border-b border-line pb-4 mb-8 text-[13px] md:text-[14px] uppercase tracking-[0.04em]">
+        <div className="flex items-center gap-6">
+          <button
+            type="button"
+            onClick={() => {
+              setFilterOpen((v) => !v);
+              setSortOpen(false);
+            }}
+            className="flex items-center gap-2.5 uppercase"
           >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+              <path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12" />
+              <path d="M16 4v4M10 10v4M18 16v4" />
+            </svg>
+            Filtros{selectedCategories.length ? ` (${selectedCategories.length})` : ""}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setSortOpen((v) => !v);
+              setFilterOpen(false);
+            }}
+            className="hidden sm:flex items-center gap-2 uppercase text-ink-soft hover:text-ink"
+          >
+            {SORT_LABELS[sortBy]}
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              className={`transition-transform ${sortOpen ? "rotate-180" : ""}`}
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+        </div>
+        <div className="flex items-center gap-5">
+          <button
+            type="button"
+            onClick={() => setViewMode(viewMode === "cuadricula" ? "catalogo" : "cuadricula")}
+            className="hidden md:inline uppercase text-ink-soft hover:text-ink"
+          >
+            {viewMode === "cuadricula" ? "Vista lista" : "Vista cuadrícula"}
+          </button>
+          <span className="normal-case text-ink-soft">{visibleWatches.length} modelos</span>
         </div>
 
         {filterOpen && (
-          <div className="absolute top-full left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 z-20 bg-white border border-line w-[280px] max-h-[320px] overflow-y-auto shadow-sm">
+          <div className="absolute top-full left-0 mt-px z-20 bg-white border border-line w-[280px] max-h-[340px] overflow-y-auto normal-case tracking-normal">
             {categories.map((cat) => (
               <label
                 key={cat}
-                className="flex items-center gap-3 px-5 py-3 text-[13px] tracking-wide cursor-pointer hover:bg-brass-soft/40"
+                className="flex items-center gap-3 px-4 py-3 text-[13px] cursor-pointer hover:bg-brass-soft"
               >
                 <input
                   type="checkbox"
@@ -141,7 +144,7 @@ export default function WatchesExplorer({ watches, categories }: { watches: Watc
             {selectedCategories.length > 0 && (
               <button
                 onClick={() => setSelectedCategories([])}
-                className="w-full text-left px-5 py-3 text-[13px] tracking-wide uppercase text-ink-soft hover:text-ink border-t border-line"
+                className="w-full text-left px-4 py-3 text-[12px] uppercase text-ink-soft hover:text-ink border-t border-line"
               >
                 Limpiar filtros
               </button>
@@ -150,7 +153,7 @@ export default function WatchesExplorer({ watches, categories }: { watches: Watc
         )}
 
         {sortOpen && (
-          <div className="absolute top-full right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 z-20 bg-white border border-line w-[240px] shadow-sm">
+          <div className="absolute top-full left-0 sm:left-40 mt-px z-20 bg-white border border-line w-[240px] normal-case tracking-normal">
             {(Object.keys(SORT_LABELS) as SortOption[]).map((opt) => (
               <div
                 key={opt}
@@ -158,8 +161,8 @@ export default function WatchesExplorer({ watches, categories }: { watches: Watc
                   setSortBy(opt);
                   setSortOpen(false);
                 }}
-                className={`px-5 py-3 text-[13px] tracking-wide cursor-pointer hover:bg-brass-soft/40 ${
-                  opt === sortBy ? "text-ink font-semibold" : "text-ink-soft"
+                className={`px-4 py-3 text-[13px] cursor-pointer hover:bg-brass-soft ${
+                  opt === sortBy ? "text-ink font-bold" : "text-ink-soft"
                 }`}
               >
                 {SORT_LABELS[opt]}
@@ -169,42 +172,10 @@ export default function WatchesExplorer({ watches, categories }: { watches: Watc
         )}
       </div>
 
-      <div className="font-serif italic text-[19px] text-center text-ink-soft pt-8 pb-6">
-        {visibleWatches.length} Modelos
-      </div>
-
-      <div className="flex justify-center items-center gap-8 pb-10 text-[15px] tracking-wide">
-        <div
-          onClick={() => setViewMode("cuadricula")}
-          className={`flex items-center gap-2.5 cursor-pointer select-none ${
-            viewMode === "cuadricula" ? "text-ink" : "text-ink-soft"
-          }`}
-        >
-          Cuadrícula
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <rect x="3" y="3" width="8" height="8" />
-            <rect x="13" y="3" width="8" height="8" />
-            <rect x="3" y="13" width="8" height="8" />
-            <rect x="13" y="13" width="8" height="8" />
-          </svg>
-        </div>
-        <div
-          onClick={() => setViewMode("catalogo")}
-          className={`flex items-center gap-2.5 cursor-pointer select-none ${
-            viewMode === "catalogo" ? "text-ink" : "text-ink-soft"
-          }`}
-        >
-          Catálogo
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4}>
-            <rect x="3" y="3" width="18" height="18" />
-          </svg>
-        </div>
-      </div>
-
       {visibleWatches.length === 0 ? (
-        <div className="text-center text-ink-soft text-[15px] pb-24">No hay modelos con esos filtros.</div>
+        <div className="text-center text-ink-soft text-[14px] py-20">No hay modelos con esos filtros.</div>
       ) : viewMode === "cuadricula" ? (
-        <StaggerGrid className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14 px-6 md:px-14 pb-24">
+        <StaggerGrid className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-10">
           {visibleWatches.map((w) => (
             <StaggerItem key={w.id}>
               <WatchCard watch={w} />
@@ -212,7 +183,7 @@ export default function WatchesExplorer({ watches, categories }: { watches: Watc
           ))}
         </StaggerGrid>
       ) : (
-        <StaggerGrid className="flex flex-col px-6 md:px-14 pb-24 border-t border-line">
+        <StaggerGrid className="flex flex-col border-t border-line">
           {visibleWatches.map((w) => (
             <StaggerItem key={w.id}>
               <WatchListItem watch={w} />
@@ -220,6 +191,6 @@ export default function WatchesExplorer({ watches, categories }: { watches: Watc
           ))}
         </StaggerGrid>
       )}
-    </>
+    </div>
   );
 }

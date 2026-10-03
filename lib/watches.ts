@@ -59,3 +59,11 @@ export function getShortDescription(watch: Watch): string {
   const parts = [movimiento, material].filter(Boolean);
   return parts.length ? parts.join(", ") : watch.categorias[0];
 }
+
+export function hasPrecio(watch: Watch): boolean {
+  return /\d/.test(watch.precio_mxn);
+}
+
+export function getPrecioLabel(watch: Watch): string {
+  return hasPrecio(watch) ? `${watch.precio_mxn} MXN` : "Ver precio en Amazon";
+}

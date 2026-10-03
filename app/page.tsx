@@ -1,54 +1,52 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroCarousel from "@/components/HeroCarousel";
 import WatchesExplorer from "@/components/WatchesExplorer";
-import { FadeIn, StaggerGrid, StaggerItem } from "@/components/FadeIn";
 import { getAllWatches, getAllCategories, categoryToSlug } from "@/lib/watches";
 import { GUIAS } from "@/lib/guias";
 
 export default function Home() {
   const watches = getAllWatches();
   const categories = getAllCategories();
+  const destacados = watches.filter((w) => w.imagen).slice(0, 8);
 
   return (
     <main>
-      <Header breadcrumb="Inicio / Relojes" />
+      <Header />
 
-      <WatchesExplorer watches={watches} categories={categories} />
+      <HeroCarousel watches={destacados} />
 
-      <div className="px-8 md:px-16 py-16 border-t border-line">
-        <FadeIn>
-          <div className="font-serif text-[26px] text-center mb-8">Explora por categoría</div>
-        </FadeIn>
-        <StaggerGrid className="flex flex-wrap justify-center gap-2.5">
+      <section id="catalogo" className="scroll-mt-14">
+        <WatchesExplorer watches={watches} categories={categories} />
+      </section>
+
+      <section className="px-5 md:px-8 py-14 border-t border-line">
+        <h2 className="text-[18px] md:text-[22px] uppercase tracking-[0.02em] mb-8">Categorías</h2>
+        <div className="flex flex-wrap gap-2">
           {categories.map((cat) => (
-            <StaggerItem key={cat}>
-              <Link
-                href={`/categorias/${categoryToSlug(cat)}`}
-                className="block border border-line px-5 py-2.5 text-[13px] tracking-wide cursor-pointer text-ink-soft hover:text-ink hover:border-ink transition-colors"
-              >
-                {cat}
-              </Link>
-            </StaggerItem>
+            <Link
+              key={cat}
+              href={`/categorias/${categoryToSlug(cat)}`}
+              className="border border-line px-4 py-2.5 text-[12px] uppercase tracking-[0.04em] hover:bg-ink hover:text-white hover:border-ink transition-colors"
+            >
+              {cat}
+            </Link>
           ))}
-        </StaggerGrid>
-      </div>
+        </div>
+      </section>
 
-      <div className="px-8 md:px-16 pt-8 pb-24 border-t border-line">
-        <FadeIn>
-          <div className="font-serif text-[26px] text-center mb-9">Guías de compra</div>
-        </FadeIn>
-        <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="px-5 md:px-8 pb-20 border-t border-line">
+        <h2 className="text-[18px] md:text-[22px] uppercase tracking-[0.02em] mt-14 mb-8">Guías de compra</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {GUIAS.map((g) => (
-            <StaggerItem key={g.slug}>
-              <Link href={`/guias/${g.slug}`} className="block border-t border-ink pt-5 h-full group">
-                <div className="text-[12px] tracking-[0.1em] uppercase text-ink-soft mb-3">{g.tag}</div>
-                <div className="font-serif text-[21px] leading-snug group-hover:underline">{g.titulo}</div>
-              </Link>
-            </StaggerItem>
+            <Link key={g.slug} href={`/guias/${g.slug}`} className="group block border-t border-ink pt-4">
+              <div className="text-[11px] uppercase tracking-[0.06em] text-ink-soft mb-2">{g.tag}</div>
+              <div className="text-[15px] uppercase leading-snug group-hover:underline">{g.titulo}</div>
+            </Link>
           ))}
-        </StaggerGrid>
-      </div>
+        </div>
+      </section>
 
       <Footer />
     </main>
